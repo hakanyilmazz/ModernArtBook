@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/art_graph"
+    app:startDestination="@id/artFragment">
+
+    <fragment
+        android:id="@+id/artFragment"
+        android:name="com.example.roomdbwithnavigation.ui.fragment.ArtFragment"
+        android:label="fragment_art"
+        tools:layout="@layout/fragment_art" >
+        <action
+            android:id="@+id/action_artFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.example.roomdbwithnavigation.ui.fragment.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_uploadFragment_to_artFragment"
+            app:destination="@id/artFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/artFragment"
+            app:popUpToInclusive="true"/>
+        <argument
+            android:name="art_id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="isNew"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+</navigation>
